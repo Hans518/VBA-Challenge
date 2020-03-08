@@ -77,7 +77,7 @@ For Each ws In Worksheets
             ws.Range("J" & Summary_Table_Row).Value = op
             
             'Print the closing price to the summary table
-            ws.Range("K" & Summary_Table_Row).Value = Cells(i, 6).Value
+            ws.Range("K" & Summary_Table_Row).Value = ws.Cells(i, 6).Value
             
             'Calculate the price difference
             ws.Range("L" & Summary_Table_Row).Value = ws.Range("K" & Summary_Table_Row).Value - ws.Range("J" & Summary_Table_Row).Value
@@ -105,7 +105,7 @@ For Each ws In Worksheets
                            
                 End If
              End If
-            'Find max value, min value, and associated tickers
+             
             If ws.Range("M" & Summary_Table_Row).Value > max_val Then
                 max_val = ws.Range("M" & Summary_Table_Row).Value
                 max_tic = ws.Range("I" & Summary_Table_Row).Value
@@ -135,7 +135,7 @@ For Each ws In Worksheets
             End If
             
             If row_counter = 1 Then
-            op = Cells(i, 3).Value
+            op = ws.Cells(i, 3).Value
             End If
             
             'reset row counter
@@ -149,7 +149,7 @@ For Each ws In Worksheets
 
 
 'Determine greatest % increase, greatest % decrease, and greatest total volume with loops
-   
+    'LastRow = Cells(Rows.Count, 13).End(xlDown).Row
 
 
     
